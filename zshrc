@@ -74,7 +74,7 @@ export LANG="en_US.UTF-8"
 # =============
 #
 
-export GOBIN="$HOME/go/bin"
+export GOBIN="/usr/local/go/bin"
 export PATH="$GOBIN:$HOME/.cargo/bin:$PATH"
 
 export EDITOR="vim"
@@ -291,12 +291,7 @@ function switchgo() {
 # ===================
 
 # These are installed via github.com/fatih/dotfiles/Brewfile
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-# ===================
-#    THIRD PARTY
-# ===================
-# brew install jump
-# https://github.com/gsamokovarov/jump
-eval "$(jump shell)"
+

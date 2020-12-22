@@ -185,7 +185,7 @@ if [ ! -d "${HOME}/.tmux/plugins" ]; then
 fi
 
 echo "==> Setting shell to zsh..."
-sudo chsh -s /usr/bin/zsh
+sudo chsh -s $(which zsh) ubuntu
 
 echo "==> Creating dev directories"
 mkdir -p ~/code
@@ -195,24 +195,14 @@ mkdir -p ~/code
 if ! [ -x "$(command -v nvm)" ]; then
  echo "===> Installing nvm"
  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
- nvm install v14.15.0
 fi
 
-if [ ! -d ~/code/dotfiles ]; then
-  echo "==> Setting up dotfiles"
-  # the reason we dont't copy the files individually is, to easily push changes
-  # if needed
-  cd "~/code"
-  git clone --recursive https://github.com/pandocreek/dotfiles.git
+echo "==> Setting up dotfiles"
 
-  cd "~/code/dotfiles"
-  git remote set-url origin git@github.com:pandocreek/dotfiles.git
-
-  ln -sfn $(pwd)/vimrc "${HOME}/.vimrc"
-  ln -sfn $(pwd)/zshrc "${HOME}/.zshrc"
-  ln -sfn $(pwd)/tmuxconf "${HOME}/.tmux.conf"
-  ln -sfn $(pwd)/gitconfig "${HOME}/.gitconfig"
-fi
+ln -sfn $(pwd)/vimrc "${HOME}/.vimrc"
+ln -sfn $(pwd)/zshrc "${HOME}/.zshrc"
+ln -sfn $(pwd)/tmuxconf "${HOME}/.tmux.conf"
+ln -sfn $(pwd)/gitconfig "${HOME}/.gitconfig"
 
 echo ""
 echo "==> Done!"
