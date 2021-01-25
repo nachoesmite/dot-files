@@ -52,7 +52,7 @@ if !has('nvim')
   set ttyscroll=3
 endif
 
-set laststatus=2
+set laststatus=2                " It controls, when/how to display the status-bar. 0 never, 1 only multi window, 2 always"
 set encoding=utf-8              " Set default encoding to UTF-8
 set autoread                    " Automatically reread changed files without asking me anything
 set autoindent                  
